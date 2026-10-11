@@ -1,24 +1,34 @@
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.ts',
+  mode: 'development',
+  entry: './dist-ts/index.js',
+
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: "/",
     clean: true
   },
-  resolve: { extensions: ['.ts', '.js'] },
-  module: {
-    rules: [{ test: /\.ts$/, use: 'ts-loader', exclude: /node_modules/ }]
-  },
-  devServer: {
-    static: { directory: path.resolve(__dirname, 'public') },
-    devMiddleware: { writeToDisk: true },
-    hot: true,
-    port: 3001
-  },
+
   plugins: [
-    new (require('webpack')).ProgressPlugin()
-  ]
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'public', to: '.' }
+            ]
+        })
+    ],
+
+
+  devtool: 'source-map',
+
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'public')
+    },
+    hot: true,
+    port: 3001,
+    watchFiles: ['dist-ts/**/*.js']
+  }
 }
