@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f3f9">
+  <title>Draw</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <canvas id="canvas" aria-label="Drawing canvas"></canvas>
+
+  <div class="toolbar" role="toolbar" aria-label="Drawing tools">
+    <button class="tool active" data-tool="pen" aria-label="Pen" title="Pen" aria-pressed="true">
+      <svg viewBox="0 0 24 24"><path d="m5 19 4.5-1 9.8-9.8-3.5-3.5L6 14.5 5 19Z"/><path d="m13.8 6.7 3.5 3.5"/></svg>
+    </button>
+    <button class="tool" data-tool="marker" aria-label="Marker" title="Marker" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M4 17 15.5 5.5l3 3L7 20H4v-3Z"/><path d="M12.5 8.5 15.5 11.5M4 22h16"/></svg>
+    </button>
+    <button class="tool" data-tool="glow" aria-label="Glow brush" title="Glow brush" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8 3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg>
+    </button>
+    <button class="tool" data-tool="spray" aria-label="Spray brush" title="Spray brush" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><circle cx="6" cy="8" r="1"/><circle cx="13" cy="5" r="1"/><circle cx="19" cy="10" r="1"/><circle cx="9" cy="15" r="1"/><circle cx="17" cy="18" r="1"/><circle cx="5" cy="20" r="1"/></svg>
+    </button>
+    <button class="tool" id="size-toggle" aria-label="Brush size" title="Brush size" aria-expanded="false" aria-controls="size-panel">
+      <svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="2"/><circle cx="17" cy="12" r="5"/></svg>
+    </button>
+    <span class="separator" aria-hidden="true"></span>
+    <button class="tool" data-tool="fill" aria-label="Fill" title="Fill" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="m12 3 8 8-8 8-8-8 8-8Z"/><path d="M4 11h16M20 18c0 1.7-1.5 3-3 3s-3-1.3-3-3c0-1.3 3-4 3-4s3 2.7 3 4Z"/></svg>
+    </button>
+    <button class="tool" data-tool="eraser" aria-label="Eraser" title="Eraser" aria-pressed="false">
+      <svg viewBox="0 0 24 24"><path d="M8 19 3 14l10-10a2 2 0 0 1 2.8 0l4.2 4.2a2 2 0 0 1 0 2.8L12 19H8ZM8 19h13M8 9l7 7"/></svg>
+    </button>
+    <span class="separator" aria-hidden="true"></span>
+    <button class="tool" id="clear" aria-label="Clear canvas" title="Clear canvas">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6m4-6v6"/></svg>
+    </button>
+    <span class="separator" aria-hidden="true"></span>
+    <a href="https://balloons.anthonyjund.com/" class="tool-button" aria-label="Open Balloons" title="Balloons">
+    <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+        <ellipse cx="12" cy="9" rx="6" ry="7.5"/>
+        <path d="m12 16.5-2 2h4l-2-2"/>
+        <path d="M12 18.5c-3 2 3 3 0 5"/>
+        <path d="M9 5.5c-1 1-1.5 2-1.5 3.5"/>
+    </svg>
+</a>
+  </div>
+
+  <div id="size-panel" class="size-panel" hidden>
+    <span id="size-preview" class="size-preview"></span>
+    <input id="brush-size" type="range" min="2" max="48" value="12" aria-label="Brush size">
+  </div>
+
+  <div id="color-wheel" class="color-control" role="button" aria-label="Tap a color on the wheel" title="Tap to choose color">
+    <span id="color-preview" class="color-preview"></span>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
