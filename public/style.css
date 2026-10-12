@@ -9,7 +9,7 @@ body { position: fixed; inset: 0; user-select: none; -webkit-user-select: none; 
 #canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
 .toolbar {
   position: fixed;
-  top: calc(14px + env(safe-area-inset-top));
+  bottom: calc(14px + env(safe-area-inset-top));
   left: calc(14px + env(safe-area-inset-left));
   display: flex;
   gap: 6px;
@@ -37,7 +37,7 @@ body { position: fixed; inset: 0; user-select: none; -webkit-user-select: none; 
   height: 150px;
   position: fixed;
   z-index: 3;
-  top: calc(14px + env(safe-area-inset-top));
+  bottom: calc(14px + env(safe-area-inset-top));
   right: calc(14px + env(safe-area-inset-right));
   overflow: hidden;
   padding: 4px;
@@ -58,7 +58,7 @@ body { position: fixed; inset: 0; user-select: none; -webkit-user-select: none; 
 .size-panel {
   position: fixed;
   z-index: 4;
-  top: calc(67px + env(safe-area-inset-top));
+  bottom: calc(100px + env(safe-area-inset-top));
   left: calc(14px + env(safe-area-inset-left));
   display: flex;
   align-items: center;
