@@ -17,9 +17,9 @@ body { position: fixed; inset: 0; user-select: none; -webkit-user-select: none; 
   z-index: 2;
 }
 .tool, .color-control {
-  width: 43px;
-  height: 43px;
-  flex: 0 0 43px;
+  width: 75px;
+  height: 75px;
+  flex: 0 0 75px;
   border-radius: 50%;
   border: 1px solid rgba(104, 91, 147, .13);
   background: rgba(255, 255, 255, .83);
